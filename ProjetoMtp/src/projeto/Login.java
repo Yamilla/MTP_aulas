@@ -39,7 +39,7 @@ public class Login extends JFrame implements ActionListener {
 	JButton btnNewButton = new JButton("Cadastrar");
 	JButton btnNewButton_1 = new JButton("Login");
 	public Login() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\yamil\\OneDrive\\Imagens\\logoifg.png"));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\yamil\\Desktop\\IFG 2018.2\\ifg_instituto_federal_goiano.jpg"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 535, 475);
 		contentPane = new JPanel();

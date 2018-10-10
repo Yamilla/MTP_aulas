@@ -8,6 +8,9 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Font;
+import javax.swing.ImageIcon;
+import javax.swing.JProgressBar;
+import java.awt.Toolkit;
 
 public class CadastroIncorreto extends JFrame {
 
@@ -33,20 +36,22 @@ public class CadastroIncorreto extends JFrame {
 	 * Create the frame.
 	 */
 	public CadastroIncorreto() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\yamil\\Desktop\\IFG 2018.2\\ifg_instituto_federal_goiano.jpg"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 264, 194);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		lblNewLabel.setBounds(155, 92, 135, 35);
-		contentPane.add(lblNewLabel);
-		
 		JLabel lblNewLabel_1 = new JLabel("Login Incorreto!");
-		lblNewLabel_1.setBounds(165, 99, 163, 61);
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		lblNewLabel_1.setBounds(70, 35, 102, 61);
 		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\yamil\\Downloads\\sad-face-in-rounded-square (1).png"));
+		lblNewLabel.setBounds(90, 77, 48, 47);
+		contentPane.add(lblNewLabel);
 	}
 }

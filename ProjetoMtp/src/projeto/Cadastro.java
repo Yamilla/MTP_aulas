@@ -21,14 +21,17 @@ import java.awt.Component;
 import javax.swing.JFormattedTextField;
 import javax.swing.JPasswordField;
 import java.awt.Dialog.ModalExclusionType;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
+import java.awt.SystemColor;
 
 public class Cadastro extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	protected JTextField textField;
+	protected JTextField textField_1;
+	protected JTextField textField_2;
+	protected JTextField textField_3;
 	private JPasswordField passwordField;
 	private JPasswordField passwordField_1;
 
@@ -51,8 +54,7 @@ public class Cadastro extends JFrame {
 	
 	public Cadastro() {
 		setFont(new Font("Times New Roman", Font.BOLD, 14));
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\yamil\\OneDrive\\Imagens\\logoifg.png"));
-		setForeground(Color.BLACK);
+		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\yamil\\Desktop\\IFG 2018.2\\ifg_instituto_federal_goiano.jpg"));
 		setTitle("Cadastro");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 342);
@@ -83,9 +85,9 @@ public class Cadastro extends JFrame {
 		lblEmail.setBounds(10, 86, 46, 14);
 		contentPane.add(lblEmail);
 		
-		JLabel lblNewLabel = new JLabel("Cidade/Estado");
+		JLabel lblNewLabel = new JLabel("Cidade");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-		lblNewLabel.setBounds(10, 122, 77, 14);
+		lblNewLabel.setBounds(10, 122, 46, 14);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblSenha = new JLabel("Senha");
@@ -98,12 +100,20 @@ public class Cadastro extends JFrame {
 		lblConfirmarSenha.setBounds(10, 202, 89, 14);
 		contentPane.add(lblConfirmarSenha);
 		
+		
+		//ACTION
 		JButton btnCadastrar = new JButton("Cadastrar");
 		btnCadastrar.setForeground(Color.BLACK);
 		btnCadastrar.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		btnCadastrar.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent arg0) {
+				
+				if(arg0.getSource()==btnCadastrar) {
+					Conexao con = new Conexao();
+					
+				}
+				
 			}
 		});
 		btnCadastrar.setBounds(160, 269, 89, 23);
@@ -114,10 +124,10 @@ public class Cadastro extends JFrame {
 		btnCancelar.setBounds(288, 269, 89, 23);
 		contentPane.add(btnCancelar);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(58, 49, 366, 20);
-		contentPane.add(textField_1);
-		textField_1.setColumns(10);
+		setTextField_1(new JTextField());
+		getTextField_1().setBounds(58, 49, 366, 20);
+		contentPane.add(getTextField_1());
+		getTextField_1().setColumns(10);
 		
 		textField_2 = new JTextField();
 		textField_2.setBounds(58, 83, 366, 20);
@@ -125,18 +135,40 @@ public class Cadastro extends JFrame {
 		textField_2.setColumns(10);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(97, 119, 327, 20);
+		textField_3.setBounds(58, 119, 191, 20);
 		contentPane.add(textField_3);
 		textField_3.setColumns(10);
 		
 		passwordField = new JPasswordField();
-		passwordField.setBounds(66, 158, 358, 20);
+		passwordField.setBounds(58, 158, 366, 20);
 		contentPane.add(passwordField);
 		
 		passwordField_1 = new JPasswordField();
 		passwordField_1.setBounds(97, 199, 327, 20);
 		contentPane.add(passwordField_1);
-		contentPane.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{lblLogin, textField, lblNome, lblEmail, lblNewLabel, lblSenha, lblConfirmarSenha, btnCadastrar, btnCancelar, textField_1, textField_2, textField_3}));
+		
+		JLabel lblEstado = new JLabel("UF");
+		lblEstado.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		lblEstado.setBounds(274, 122, 24, 14);
+		contentPane.add(lblEstado);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setMaximumRowCount(4);
+		comboBox.setFont(new Font("Times New Roman", Font.PLAIN, 12));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Selecione a op\u00E7\u00E3o", "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"}));
+		comboBox.setBounds(311, 118, 113, 22);
+		contentPane.add(comboBox);
+		contentPane.setFocusTraversalPolicy(new FocusTraversalOnArray(new Component[]{lblLogin, textField, lblNome, lblEmail, lblNewLabel, lblSenha, lblConfirmarSenha, btnCadastrar, btnCancelar, getTextField_1(), textField_2, textField_3}));
+	}
+
+
+	public JTextField getTextField_1() {
+		return textField_1;
+	}
+
+
+	public void setTextField_1(JTextField textField_1) {
+		this.textField_1 = textField_1;
 	}	
 }
 
